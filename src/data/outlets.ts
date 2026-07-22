@@ -82,7 +82,7 @@ export const outlets: Outlet[] = [
       "Seafood",
       "Desserts",
     ],
-    instagram: "https://www.instagram.com/storiesbarblr/",
+    instagram: "https://www.instagram.com/storiesrrnagar",
   },
 ];
 

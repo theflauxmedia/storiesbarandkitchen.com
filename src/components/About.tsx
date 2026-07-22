@@ -105,7 +105,7 @@ export default function About() {
           <motion.p variants={variants}>
             Stories Bar &amp; Kitchen is where Bengaluru gathers — for long
             dinners under open skies, a full bar poured with care, and nights
-            that linger. Across four thoughtfully located rooftops, we serve
+            that linger. Across four thoughtfully located outlets, we serve
             North Indian classics, Continental favourites, Italian plates, and
             bar food made for sharing.
           </motion.p>

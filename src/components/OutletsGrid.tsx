@@ -32,7 +32,7 @@ export default function OutletsGrid() {
             variants={variants}
             className="mb-5 text-[0.7rem] uppercase tracking-[0.3em] text-accent-bright"
           >
-            Four Rooftops
+            Four Outlets
           </motion.p>
           <motion.h2
             variants={variants}
@@ -44,8 +44,8 @@ export default function OutletsGrid() {
             variants={variants}
             className="mt-5 text-base leading-relaxed text-muted md:text-lg"
           >
-            Four Bengaluru locations. Same spirit — rooftop energy, a full bar,
-            and a kitchen that keeps the table talking.
+            Four Bengaluru locations. Same spirit — a full bar, and a kitchen
+            that keeps the table talking.
           </motion.p>
         </motion.div>
 
