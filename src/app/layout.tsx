@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Geist } from "next/font/google";
 import JsonLd from "@/components/JsonLd";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_TITLE,
+  SITE_LOCALE,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const cormorant = Cormorant_Garamond({
@@ -13,63 +22,79 @@ const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
+  display: "swap",
 });
 
-const siteUrl = "https://storiesbarandkitchen.com";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: "Stories Bar & Kitchen | Rooftop Bar & Kitchen in Bengaluru",
-  description:
-    "Stories Bar & Kitchen — Bengaluru's rooftop bar & kitchen destination. North Indian, Continental, Italian & bar food across 4 outlets in HSR, Rajajinagar, Nagarbhavi & R.R Nagar. Rated 4.4★.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: DEFAULT_TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  applicationName: SITE_NAME,
   keywords: [
     "Stories Bar & Kitchen",
-    "rooftop bar Bengaluru",
+    "Stories Bar and Kitchen Bengaluru",
     "bar and kitchen Bangalore",
-    "HSR rooftop",
-    "North Indian restaurant Bangalore",
-    "Italian Continental Bengaluru",
+    "rooftop bar Bengaluru",
+    "HSR Layout bar",
+    "Nagarbhavi restaurant",
+    "Rajajinagar bar and kitchen",
+    "book a table Bengaluru",
+    "live music bar Bangalore",
+    "corporate party venue Bengaluru",
+    "birthday party restaurant Bangalore",
   ],
-  authors: [{ name: "Stories Bar & Kitchen" }],
-  creator: "Stories Bar & Kitchen",
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "Food & Drink",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   alternates: {
-    canonical: "/",
+    canonical: `${SITE_URL}/`,
   },
   openGraph: {
     type: "website",
-    locale: "en_IN",
-    url: siteUrl,
-    siteName: "Stories Bar & Kitchen",
-    title: "Stories Bar & Kitchen | Rooftop Bar & Kitchen in Bengaluru",
-    description:
-      "Where every meal tells a story. Rooftop dining, a full bar, live sports & nightlife across 4 Bengaluru outlets — North Indian, Continental, Italian & bar food.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 447,
-        height: 447,
-        alt: "Stories Bar & Kitchen logo",
-      },
-    ],
+    locale: SITE_LOCALE,
+    url: `${SITE_URL}/`,
+    siteName: SITE_NAME,
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stories Bar & Kitchen | Rooftop Bar & Kitchen in Bengaluru",
-    description:
-      "Bengaluru's rooftop bar & kitchen — 4 outlets, North Indian · Continental · Italian · Bar Food. Rated 4.4★.",
-    images: ["/og-image.png"],
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE.url],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/png" },
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
     ],
     apple: [{ url: "/apple-icon.png" }],
+  },
+  other: {
+    "geo.region": "IN-KA",
+    "geo.placename": "Bengaluru",
   },
 };
 
@@ -80,7 +105,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background font-sans text-foreground">

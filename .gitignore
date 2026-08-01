@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# Raw camera dumps (curate + optimise into public/assets only)
+/assets/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
